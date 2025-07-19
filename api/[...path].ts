@@ -36,10 +36,10 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
         ...req.headers,
       },
-      body:
-        req.method !== 'GET' && req.method !== 'HEAD'
-          ? '{first_name: "Super"}' // rawBody
-          : undefined,
+      body: rawBody
+        // req.method !== 'GET' && req.method !== 'HEAD'
+        //   ? rawBody
+        //   : undefined,
     });
   
     const data = await response.text();
