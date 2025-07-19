@@ -1,0 +1,15 @@
+{
+    "name": "cmg-proxy-api",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vercel dev"
+    },
+    "dependencies": {
+        "node-fetch": "^3.3.2"
+    },
+    "devDependencies": {
+        "@types/node": "^24.0.15",
+        "typescript": "^5.8.3"
+    }
+}
