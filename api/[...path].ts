@@ -1,7 +1,6 @@
 export default async function handler(req, res) {
-    console.log('req.path:', req.url);
-    const path = req.query.path.join('/');
-    const url = `http://185.92.220.208:5000/${path}`;
+    const path = req.url.split('?')[0];
+    const url = `http://185.92.220.208:5000${path}`;
   
     const response = await fetch(url, {
       method: req.method,
