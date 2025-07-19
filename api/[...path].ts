@@ -16,6 +16,8 @@ export default async function handler(req, res) {
         return;
     }
 
+    console.log(req.url);
+
     const url = req.method === 'GET' ? req.url.replace('/api/', '') : req.url.split('?')[0].replace('/api/', '');
 
     // const pathSegments = req.query.path;
@@ -26,10 +28,6 @@ export default async function handler(req, res) {
       req.method !== 'GET' && req.method !== 'HEAD'
         ? await getRawBody(req)
         : undefined;
-
-    console.log(rawBody);
-    // console.log(rawBody.toString('utf-8'));
-    console.log('Forwarded body length:', rawBody?.length);
 
     const { host, 'content-length': _, 'content-type': __, ...forwardedHeaders } = req.headers;
   
