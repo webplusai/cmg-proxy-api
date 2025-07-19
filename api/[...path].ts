@@ -22,7 +22,14 @@ export default async function handler(req, res) {
     const path = Array.isArray(pathSegments) ? pathSegments.join('/') : pathSegments || '';
     const url = `http://185.92.220.208:5000/${path}`;
 
-    console.log(await getRawBody(req));
+    const rawBody =
+      req.method !== 'GET' && req.method !== 'HEAD'
+        ? await getRawBody(req)
+        : undefined;
+
+    console.log(rawBody);
+    console.log(rawBody.toString('utf-8'));
+
   
     const response = await fetch(url, {
       method: req.method,
@@ -33,7 +40,7 @@ export default async function handler(req, res) {
       },
       body:
         req.method !== 'GET' && req.method !== 'HEAD'
-          ? await getRawBody(req)
+          ? rawBody
           : undefined,
     });
   
