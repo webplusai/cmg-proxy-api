@@ -36,7 +36,7 @@ export default async function handler(req, res) {
         ...req.headers,
         'Content-Type': 'application/json',
       },
-      body: rawBody
+      body: rawBody?.toString('utf-8')
         // req.method !== 'GET' && req.method !== 'HEAD'
         //   ? rawBody
         //   : undefined,
