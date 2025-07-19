@@ -29,12 +29,13 @@ export default async function handler(req, res) {
 
     console.log(rawBody);
     // console.log(rawBody.toString('utf-8'));
-    console.log(req.headers);
+
+    const { host, 'content-length': _, ...forwardedHeaders } = req.headers;
   
     const response = await fetch(url, {
       method: req.method,
       headers: {
-        ...req.headers,
+        ...forwardedHeaders,
         'Content-Type': 'application/json',
       },
       body: rawBody?.toString('utf-8')
