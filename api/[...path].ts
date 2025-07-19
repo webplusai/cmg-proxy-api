@@ -24,6 +24,8 @@ export default async function handler(req, res) {
     // const path = Array.isArray(pathSegments) ? pathSegments.join('/') : pathSegments || '';
     // const url = `http://185.92.220.208:5000/${path}`;
 
+    console.log(url);
+
     const rawBody =
       req.method !== 'GET' && req.method !== 'HEAD'
         ? await getRawBody(req)
