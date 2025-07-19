@@ -29,6 +29,7 @@ export default async function handler(req, res) {
 
     console.log(rawBody);
     // console.log(rawBody.toString('utf-8'));
+    console.log('Forwarded body length:', rawBody?.length);
 
     const { host, 'content-length': _, ...forwardedHeaders } = req.headers;
   
