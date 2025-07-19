@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     // console.log(rawBody.toString('utf-8'));
     console.log('Forwarded body length:', rawBody?.length);
 
-    const { host, 'content-length': _, ...forwardedHeaders } = req.headers;
+    const { host, 'content-length': _, 'content-type': __, ...forwardedHeaders } = req.headers;
   
     const response = await fetch(url, {
       method: req.method,
