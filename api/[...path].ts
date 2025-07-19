@@ -18,8 +18,11 @@ export default async function handler(req, res) {
 
     console.log(req.url);
 
-    const url = req.method === 'GET' ? req.url.replace('/api/', '').split('path=')[0] : req.url.split('?')[0].replace('/api/', '');
+    let url = req.method === 'GET' ? req.url.replace('/api/', '').split('path=')[0] : req.url.split('?')[0].replace('/api/', '');
 
+    if (url.endsWith('&')) {
+      url = url.substring(0, url.length - 1);
+    }
     // const pathSegments = req.query.path;
     // const path = Array.isArray(pathSegments) ? pathSegments.join('/') : pathSegments || '';
     // const url = `http://185.92.220.208:5000/${path}`;
