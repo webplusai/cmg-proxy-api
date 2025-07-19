@@ -33,8 +33,8 @@ export default async function handler(req, res) {
     const response = await fetch(url, {
       method: req.method,
       headers: {
-        'Content-Type': 'application/json',
         ...req.headers,
+        'Content-Type': 'application/json',
       },
       body: rawBody
         // req.method !== 'GET' && req.method !== 'HEAD'
