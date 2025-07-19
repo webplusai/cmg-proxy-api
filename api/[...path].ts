@@ -1,4 +1,13 @@
 export default async function handler(req, res) {
+    // Handle CORS preflight requests
+    if (req.method === 'OPTIONS') {
+        res.setHeader('Access-Control-Allow-Origin', '*'); // or restrict to your frontend domain
+        res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.status(204).end();
+        return;
+    }
+
     const path = req.url.split('?')[0].replace('/api/', '');
     const url = `http://185.92.220.208:5000/${path}`;
   
