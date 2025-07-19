@@ -8,7 +8,10 @@ export default async function handler(req, res) {
         return;
     }
 
-    const path = req.url.split('?')[0].replace('/api/', '');
+    // const path = req.url.split('?')[0].replace('/api/', '');
+
+    const pathSegments = req.query.path;
+    const path = Array.isArray(pathSegments) ? pathSegments.join('/') : pathSegments || '';
     const url = `http://185.92.220.208:5000/${path}`;
 
     console.log(url);
