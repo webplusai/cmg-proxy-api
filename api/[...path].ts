@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     const path = Array.isArray(pathSegments) ? pathSegments.join('/') : pathSegments || '';
     const url = `http://185.92.220.208:5000/${path}`;
 
-    console.log(req.body);
+    console.log(await getRawBody(req));
   
     const response = await fetch(url, {
       method: req.method,
