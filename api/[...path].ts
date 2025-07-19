@@ -38,8 +38,8 @@ export default async function handler(req, res) {
         host: undefined,
       },
       body:
-        req.method !== 'GET' && req.method !== 'HEAD' && rawBody
-          ? rawBody.toString('utf-8')
+        req.method !== 'GET' && req.method !== 'HEAD'
+          ? rawBody
           : undefined,
     });
   
