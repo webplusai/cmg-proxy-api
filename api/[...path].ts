@@ -28,7 +28,8 @@ export default async function handler(req, res) {
         : undefined;
 
     console.log(rawBody);
-    console.log(rawBody.toString('utf-8'));
+    // console.log(rawBody.toString('utf-8'));
+    console.log(req.headers);
   
     const response = await fetch(url, {
       method: req.method,
