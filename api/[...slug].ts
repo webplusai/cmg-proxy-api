@@ -1,3 +1,9 @@
+export const config = {
+    api: {
+      bodyParser: true, // Enable default body parsing
+    },
+};
+
 export default async function handler(req, res) {
     // Handle CORS preflight requests
     if (req.method === 'OPTIONS') {
