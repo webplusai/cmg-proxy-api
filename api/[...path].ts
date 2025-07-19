@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
     console.log(req.url);
 
-    const url = req.method === 'GET' ? req.url.replace('/api/', '') : req.url.split('?')[0].replace('/api/', '');
+    const url = req.method === 'GET' ? req.url.replace('/api/', '').split('path=')[0] : req.url.split('?')[0].replace('/api/', '');
 
     // const pathSegments = req.query.path;
     // const path = Array.isArray(pathSegments) ? pathSegments.join('/') : pathSegments || '';
