@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-    console.log('req.query:', req.query);
+    console.log('req.path:', req.path);
     const path = req.query.path.join('/');
     const url = `http://185.92.220.208:5000/${path}`;
   
