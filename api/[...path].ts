@@ -35,11 +35,10 @@ export default async function handler(req, res) {
       headers: {
         'Content-Type': 'application/json',
         ...req.headers,
-        host: undefined,
       },
       body:
         req.method !== 'GET' && req.method !== 'HEAD'
-          ? rawBody
+          ? '{first_name: "Super"}' // rawBody
           : undefined,
     });
   
