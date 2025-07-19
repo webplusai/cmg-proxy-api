@@ -1,6 +1,6 @@
 export const config = {
     api: {
-      bodyParser: true, // Enable default body parsing
+      bodyParser: false, // Enable default body parsing
     },
 };
 
