@@ -16,11 +16,11 @@ export default async function handler(req, res) {
         return;
     }
 
-    // const path = req.url.split('?')[0].replace('/api/', '');
+    const url = req.method === 'GET' ? req.url.replace('/api/', '') : req.url.split('?')[0].replace('/api/', '');
 
-    const pathSegments = req.query.path;
-    const path = Array.isArray(pathSegments) ? pathSegments.join('/') : pathSegments || '';
-    const url = `http://185.92.220.208:5000/${path}`;
+    // const pathSegments = req.query.path;
+    // const path = Array.isArray(pathSegments) ? pathSegments.join('/') : pathSegments || '';
+    // const url = `http://185.92.220.208:5000/${path}`;
 
     const rawBody =
       req.method !== 'GET' && req.method !== 'HEAD'
@@ -39,10 +39,10 @@ export default async function handler(req, res) {
         ...forwardedHeaders,
         'Content-Type': 'application/json',
       },
-      body: rawBody?.toString('utf-8')
-        // req.method !== 'GET' && req.method !== 'HEAD'
-        //   ? rawBody
-        //   : undefined,
+      body: //rawBody?.toString('utf-8')
+        req.method !== 'GET' && req.method !== 'HEAD'
+          ? rawBody?.toString('utf-8')
+          : undefined,
     });
   
     const data = await response.text();
